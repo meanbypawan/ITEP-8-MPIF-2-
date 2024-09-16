@@ -1,0 +1,44 @@
+20 + 10
+
+20,10 ==> Operand(data)
++  =====> Operator
+
+Operator :-
+  a. Assciativity 
+     aa. Left--->Right
+     bb. Right --> Left
+  b. Precendence/Priority
+  ------------------------------------
+Unary Operator
+ -, ++, --, ~
+Binary
+ +, -, *, /, <, >....
+Ternery/Conditional 
+ [? :]
+---------------------------------------------
+Arithmetic Operator (+,-,*,/,%)
+Relation Operator (>,<,>=,<=,==,!=)
+Increment/Decrement (++,--)
+Logical Operator (&&, ||, !)
+Conditional ( ? : )
+Bitwise (&, |, ^, <<, >>, ~)
+Assignment (=)
+Shorthand (+=, -=, /=, %=)
+instanceOf
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
