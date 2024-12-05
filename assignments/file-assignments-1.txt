@@ -1,0 +1,20 @@
+1. Write a java program to copy the data of one file into another file
+2. Write a java program to count total number of words in text file
+3. Write a java program to counte total number of words which start vowel and not vowel.
+4. Write a java program to reverse each word of a file and update it in same file.
+5. Write a java program to find the word whose length is maximum in a file.
+6. Write a java program to find all the palindrom words in a file.
+7. Write a program to count how many times character ‘t’ occurs in a file.
+
+8. Write a program to count no of words in a text file and average word size.
+
+9. Write a program to count number of bytes in a image file(jpeg/png/gif). Also find how
+much time it will take to upload the file on server if internet speed is 256 bps(bitsper
+second).
+10. Write down the difference b/w Byte Stream & Character Stream.
+------------------------------------------------------------------------------------
+  Serialization
+    Transient
+    ObjectInputStream
+    ObjectOutputStream
+------------------------------------------------------------------------------------     

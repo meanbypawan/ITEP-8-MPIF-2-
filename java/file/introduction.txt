@@ -1,0 +1,28 @@
+Java-Application
+   |--- File
+   |--- Database[RDBMS]
+
+                       abc.txt
+   java.io.File;
+
+   File f = new File("abc.txt");                       
+   getAbsolutePath()
+   getName()
+   canRead()
+   canWrite()
+   canExecute()
+   isExists()
+   isFile()
+   isDirectory()
+   lastModified()
+   length()
+   isHidden()
+   ........
+
+
+
+
+
+
+
+
