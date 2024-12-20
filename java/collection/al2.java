@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.HashMap;
 class TestMain{
     public static void main(String args[]){
       ArrayList<String> al = new ArrayList<String>(3); // 10
@@ -21,5 +23,8 @@ class TestMain{
         String element = al.get(i);
         System.out.println(element);       
       }
+
+      Map<Integer,String> map = new HashMap<Integer,String>();
+      System.out.println(map.hashCode());
     }
 }
