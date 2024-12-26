@@ -2,7 +2,10 @@ import java.util.TreeSet;
 import java.util.Comparator;
 class TestMain{
   public static void main(String args[]){
-    TreeSet<Employee> ts = new TreeSet<Employee>(new SortByAge());
+    //TreeSet<Employee> ts = new TreeSet<Employee>(new SortByAge());
+    //TreeSet<Employee> ts = new TreeSet<Employee>(new SortBySalary());
+    //TreeSet<Employee> ts = new TreeSet<Employee>(new SortByName());
+    TreeSet<Employee> ts = new TreeSet<Employee>();
     ts.add(new Employee(1,"A",21,90000));
     ts.add(new Employee(2,"B",28,120000));
     ts.add(new Employee(3,"E",29,150000));

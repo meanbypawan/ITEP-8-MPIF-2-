@@ -18,4 +18,7 @@ class Customer{
     public String toString(){
         return id+" "+name+" "+age;
     }
+    public int getAge(){
+        return age;
+    }
 }

@@ -1,4 +1,4 @@
-class Employee{
+class Employee implements Comparable<Employee>{
     private int id;
     private String name;
     private int age;
@@ -15,4 +15,23 @@ class Employee{
     public int getAge(){
         return this.age;
     }
+    public int getSalary(){
+        return salary;
+    }
+    public String getName(){
+        return name;
+    }
+    public int compareTo(Employee e){
+        return this.id - e.id;
+    }
 }
+
+
+
+
+
+
+
+
+
+
