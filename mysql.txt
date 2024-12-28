@@ -1,0 +1,133 @@
+MySQL :-
+  SQL [Structure Query Language]:-
+   1. DDL [Data Definition Language]
+      |--create, drop, alter, truncate
+   2. DML [Data Manipulation Language]
+      |--insert, delete, update
+   3. DRL [Data Reteriving Language] 
+      |--select
+   4. TCL [Transaction Control Language]
+      |--commit , rollback
+   5. DCL [Data Control Language]
+      |--grant, revoke
+----------------------------------------------------
+     Database------>Table------->Record/Row/Tuple
+  
+  Opening mysql shell
+    mysql -uroot -p
+  
+  Listing Database
+    show databases                    
+  How to create database in mysql
+    1. create database companydb
+       create database if not exists companydb
+  
+  Setting current database
+    use databaseName
+  
+  Datatypes :-
+    int, float, char, varchar, text, date, blob, clob, tinyint, bigint...
+  Creating table 
+    employee(name,salary,gender,age,contact) ---> Schema
+    
+  Constraint :-
+    Primary key
+    Auto increment
+    Not null
+    Unique Key
+    Foreign key
+    default value
+    Check
+    -------------------------------------  
+    create table employee(
+      name varchar(100) not null,
+      salary int,
+      gender varchar(6) not null,
+      age int(3) check(age >=18 ),
+      contact int unique key,
+      id int primary key auto_increment)       
+   --------------------------------------------
+     primary key v/s unique key  *****
+   -------------------------------------------
+   desc employee :-- Describing structure
+   describe employee  
+   
+   Ajib sa command
+   show create table employee
+   
+   Dropping constraing
+   alter table employee drop constraint constrain_name;
+   
+   Adding constraint
+   alter table employee add constraint employee_chk_age check(age>=18)
+   
+   //alter table employee modify constraint employee_chk_age check(age>=20) :- not possible
+   
+   alter table employee modify column contact varchar(10) unique key
+   --------------------------------------------------------------------------
+   Adding new column in existing structure/table
+   drop, add, modify
+   
+   alter table employee add address varchar(100)
+   alter table employee modify address varchar(100) default 'Indore'
+   alter table employee drop address
+   -------------------------------------------------------------------------
+   
+   Inserting Record
+   
+   insert into employee values('cheeku',90000,'male',21,9009111222,1)
+   insert into employee values('peeku',95000,'male',24,9009111333,null)
+   insert into employee values('lili',89000,'female',26,9009111444,null)
+   
+   alter table employee add address varchar(100) default 'Indore'
+   insert into employee values('leesha',78000,'female',22,9009111666,null,'null')
+   
+   *****
+   insert into employee(name,age,gender,contact) values('neesha',29,'female','9009111777') 
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
