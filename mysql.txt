@@ -84,13 +84,52 @@ MySQL :-
    
    *****
    insert into employee(name,age,gender,contact) values('neesha',29,'female','9009111777') 
+   ------------------------------------------------------------------
+   selecting record
    
+   select * from employee; // Complete selection
+   select id,name,salary,age from employee
+   ------------------------------------------
+   Filter :- where
+   op:- >,<,>=,<=,=,and,or,like,between,in..
+   select id,name,salary,age from employee where age >=60000
    
+   insert into employee(name,age,salary,gender,contact,skill)
+   values('rishika',19,95000,'female',9439494494,'reactjs');
    
+   wild card character :- %, _[underscore]
+   % :- zero or any number of occurance
+   _ :- fixed number and position
    
+   select * from employee where name like '%u'
+   select * from employee where name like '%ee%';
+   -----------------------------------------------
+   sort :- order by
+   select * from employee order by salary
+   select * from employee order by salary desc
+   select * from employee where salary>=60000 order by salary desc
+   ---------------------------------------------------------------
+   max(), min(), count(), sum(), avg()....
    
+   select * from employee where salary = (select max(salary) from employee)
+                                           
+   select * from employee
+   where salary = (select max(salary) from employee
+   where salary !=(select max(salary) from employee));
+   ----------------------------------------------------
+   select * from employee
+   where salary = (select max(salary) from employee
+   where salary <(select max(salary) from employee
+   where salary <(select max(salary) from employee))); 
+                                           
    
+   select * from employee where salary not in(95000)
+   select * from employee where salary not in(select max(salary) from employee)
    
+   select * from employee where salary not in(
+   select max(salary) from employee);
+   
+   select sum(salary) from employee;
    
    
    
