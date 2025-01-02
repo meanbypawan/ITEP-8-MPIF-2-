@@ -130,8 +130,118 @@ MySQL :-
    select max(salary) from employee);
    
    select sum(salary) from employee;
-   
-   
+-------------------------------------------------------------------------------------
+create table department(
+  id int primary key auto_increment,
+  departmentName varchar(100) not null);
+
+insert into department (departmentName) values ('sales'),('hr'),('it'),('testing'),('research and development')     
+---------------------------------------------------------------------
+Tabel :- employee    A
+Table :- department  B  
+
+Mapping Cardinalities/Relationship
+ a. one to many :-
+    If record of Table A is associated with multiple record of Table B.
+    e.g :- Category hasMany Products
+           Department hasMany Employee
+           On Batch hasMany Students.
+           
+ b. Many to Many
+    If a record of Table is associated with multiple record of Table B and
+    a record of Table B is associated with mulitple record of Table A.
+    
+    Note:- Third[supporting table] is used to represent Many to Many
+    
+    User, Cart, Product
+    user hasone Cart
+    Cart hasMany Product  through CartItems[cartId, productId]
+    Product bleongsToMany Cart through CartItems
+    
+ c. one to one :- if a record of Table A is associated with one record of Table B only.
+    User hasOne Cart
+    Cart belongsTo User
+
+ How to represent the relationship:-
+   Primary key, Foreign key
+--------------------------------------------
+alter table employee add(departmentId int,
+foreign key(departmentId) references department(id))
+-------------------------------------------------------
+join :- it is used to fetch data from multiple tables.
+ 1. inner join
+ 2. left outer join
+ 3. right outer join
+ 4. self join
+ 5. cross join
+ 
+select employee.id,employee.name,employee.salary,department.departmentName from
+employee inner join department on employee.departmentId = department.id
+
+
+select employee.id,employee.name,employee.salary,department.departmentName from
+employee left outer join department on employee.departmentId = department.id
+------------------------------------------------------------------------------------
+employee
+city
+state
+country
+
+employee belongst to City ,   City hasMany Employee
+City belongsTo State      ,   State hasMany Cities
+State belongsTo Country   ,   Country hasMany States
+
+create table country(
+  id int primary key auto_increment,
+  countryName varchar(100))
+
+create table state(
+ id int primary key auto_increment,
+ stateName varchar(100),
+ countryId int,
+ foreign key(countryId) references country(id))  
+  
+create table city(
+  id int primary key auto_increment,
+  cityName varchar(100),
+  stateId int,
+  foreign key(stateId) references state(id))
+------------------------------------------------
+insert into country(countryName) values('India'),('Russia');
+insert into state(stateName,countryId) values('MP',1),
+('MH',1),('UP',1),('GJ',1),('Masco',2)
+
+insert into city(cityName,stateId) values('Indore',1),('Jabalour',1),('Bhopal',1),
+('Pune',2),('Mumbai',2),('Nasik',2),('Agra',3),('Prayagraj',3),('Ahamdabad',4),('Vadodra',4),
+('Surat',4),('Gandhinagar',4),('Masco city 1',5),('Masco city 2',5)
+
+
+alter table employee add(cityId int,
+foreign key(cityId) references city(id) on delete cascade)
+
+select employee.id,employee.name,city.cityName,state.stateName,country.countryName,department.departmentName
+from employee inner join city on employee.cityId = city.id
+inner join state on city.stateId = state.id
+inner join country on state.countryId = country.id
+inner join department on department.id = employee.departmentId 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    
    
    
