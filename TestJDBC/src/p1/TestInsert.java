@@ -3,28 +3,34 @@ package p1;
 import java.sql.Connection;
 import java.sql.Statement;
 
+import dao.EmployeeDAO;
+import model.Employee;
+
 public class TestInsert {
   public static void main(String args[]) {
-	Connection con = null;
 	try {
-		con = GetConnection.getConnection();
-		String sql = "insert into employee(name,email,salary,skill,age,gender,departmentId,contact,cityId) values('test','test@gmail.com',56000,'java',21,'male',1,'9009357574',1)";
-	 	Statement st =  con.createStatement();
-	 	int x = st.executeUpdate(sql);
-	    if(x!=0)
-	    	System.out.println("Insertion succes...");
+	  Employee e = new Employee();
+	  e.setName("Dev");
+	  e.setAddress("Polo ground, Indore");
+	  e.setEmail("dev@gmail.com");
+	  e.setContact("9009857585");
+	  e.setAge(21);
+	  e.setGender("Male");
+	  e.setCityId(1);
+	  e.setDepartmentId(1);
+	  e.setSkill("reactjs");
+	  e.setSalary(120000);
+	  
+	  boolean status = EmployeeDAO.save(e);
+	  if(status)
+		  System.out.println("Employee saved...");
+	  else
+		  System.out.println("Not saved...");
 	}
 	catch(Exception e) {
 		e.printStackTrace();
 	}
-	finally {
-		try {
-			con.close();
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
+	
 	
   }
 }
