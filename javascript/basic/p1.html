@@ -1,0 +1,23 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+     <p id="para">Hello</p>   
+     <script>
+       try{ 
+        document.writeln("Welcome In Javascript<br/>");
+        document.write("ABC");     
+        document.write("<br> Factory Of Document Object "+document.constructor.name);
+        document.write("<br> Factory Of Window : "+window.constructor.name);
+        document.write("<br>Factor Of console : "+console.constructor.name);
+        var obj = document.getElementById("para");
+        document.write("<br>Factory of p tag : "+obj.constructor.name);
+        }
+       catch(err){
+           document.write(err.constructor.name);
+       }
+        </script>
+      
+    </body>
+</html>
