@@ -1,0 +1,26 @@
+<script>
+    var arr = [10,20,30,40,15,25,35];
+
+    document.write(arr);
+    arr.push(1000);
+    document.write("<br>After push : "+arr);
+   
+    arr.pop();
+    document.write("<br>After pop : "+arr);
+    
+    arr.unshift(1000);
+    document.write("<br>After unshift : "+arr);
+    
+    arr.shift();
+    document.write("<br>After Shift : "+arr);
+
+    arr.splice(2,0,2000);
+    document.write("<br>After splice as add : "+arr);
+    
+    var x = arr.splice(2,1);
+    document.write("<br>After splice as remove : "+arr);
+    document.write("<br>x : "+x);
+
+    arr.splice(2,1,500,600,700,800);
+    document.write("<br> arr : "+arr);
+</script>

@@ -1,0 +1,45 @@
+<script>
+    var arr = [1,2,3,4,5,6,7,8,9,10]
+
+    // o/p = [2,4,6,8,10]
+    // o/p = [1,4,9,16,25,36,49,64,81,100]
+
+    var result = arr.filter((element)=>{return element%2==0}); // [2,4,6,8,10]
+    document.write(result);
+
+    result = arr.map((element)=>{
+        if(element%2==0)
+          return "<b>Mr "+element+"</b>";
+        return "&nbsp;Miss "+element;
+          
+    }); // ["<br>Miss 1","<br> Mr 2",.....]
+    document.write("<br>"+result);
+
+    var status = arr.find((element)=>{return element == 5});
+    document.write("<br> 5 ka status : "+status);
+
+    status = arr.some((element)=>{return element == 5});
+    document.write("<br> 5 ka status : "+status);
+
+    var index = arr.findIndex((element)=>{return element == 500});
+    document.write("<br>5 ka index : "+index);
+
+    
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
