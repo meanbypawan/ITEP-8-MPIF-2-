@@ -1,0 +1,20 @@
+<script>
+    
+    var obj = '{"id":101,"name":"ABC","age":30,"contact":9009111333}'; // JSON String
+    obj = JSON.parse(obj);
+    /*
+      JSON-------:JSONString ==> JSON.stringify(JSON)
+      JSONString--:JSON   =====> JSON.parse(JSON-String)
+
+      Storing Data at Client Side [Browser]
+       . LocalStorage
+       . SessionStoreage
+    */
+    
+    var obj1 = {a:10,b:20};
+
+    //var obj2 = {...obj1};
+    var obj2 = JSON.parse(JSON.stringify(obj1));
+    
+    //  shallow copy, deep copy
+</script>
