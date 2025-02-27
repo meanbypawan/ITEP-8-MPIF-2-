@@ -1,0 +1,19 @@
+
+<html>
+    <body>
+        <button id="btn">Say hello..</button>
+    
+        <script>
+            var buttonObject = document.getElementById("btn");
+            buttonObject.addEventListener("click",()=>{
+                document.write("Hello Students.."+this);
+            })
+            /*
+              In case of function this refer the current object.
+              In case of arrow it will refer the global object [Depending upon context]
+            */
+        </script>
+    </body>
+
+
+</html>

@@ -1,0 +1,18 @@
+<script>
+    /*
+      Closoure :- Data Encapsulation
+    */
+    function f1(){
+        var x = 1000;
+        console.log("F1 is executed....");
+        return function f2(){
+          console.log("F2 is executed...."+x);
+        }
+    }
+
+    var f2 = f1();
+    /*
+     10000 line of code
+    */
+   f2();
+</script>

@@ -1,0 +1,17 @@
+<script>
+    function Addition(x,y){
+       this.a = x;
+       this.b = y;
+       this.add = function(){
+          console.log("Addition : "+(this.a+this.b));
+       }
+       this.sub = ()=>{
+        console.log("Subtraction : "+(this.a-this.b));
+       }
+    }
+
+
+    var obj = new Addition(20,10); // obj : {a: 20,b:10}
+    obj.add();
+    obj.sub();
+</script>
