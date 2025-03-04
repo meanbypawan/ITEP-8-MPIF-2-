@@ -1,0 +1,24 @@
+<html>
+    <body>
+        <center>
+            <img id="main" src="images/puma.png" width="200" height="200"/>
+            <br/><br/>
+            <button onclick="incrementSize()">+</button>
+            <button onclick="decrementSize()">-</button>
+        </center>
+
+        <script>
+            function incrementSize(){
+                let imgObj = document.getElementById("main");
+                imgObj.width = imgObj.width*1 + 20;
+                imgObj.height = imgObj.height*1 + 20;
+            }
+            function decrementSize(){
+
+                let imgObj = document.getElementById("main");
+                imgObj.width = imgObj.width*1 - 20;
+                imgObj.height = imgObj.height*1 - 20;
+            }
+        </script>
+    </body>
+</html>

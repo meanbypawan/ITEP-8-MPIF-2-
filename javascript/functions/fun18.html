@@ -1,0 +1,22 @@
+<script>
+    /*
+      Error Callback :-
+      it is callback function whose first argument represent the error.
+    */
+   function addition(a,b,callback){
+      if(typeof(a) == "number" && typeof(b) == "number"){
+        let result = a + b;
+        document.write("<br>Addition : "+result);
+        callback(null,result);
+      }
+      else
+       callback(new Error("Invalid input | Only number allowed"));
+   }
+
+   addition(20,"10",(err,result)=>{
+    if(err)
+      document.write("<br>"+err);
+    else
+     result%2 ? document.write("<br>ODD") : document.write("<br>EVEN");  
+   });
+</script>

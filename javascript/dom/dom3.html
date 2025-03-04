@@ -1,0 +1,24 @@
+<html>
+    <body>
+        <center>
+            <img id="main" src="images/puma.png" width="200" height="200"/>
+            <br/><br/>
+            <button onclick="manipulateImage(1)">+</button>
+            <button onclick="manipulateImage(2)">-</button>
+        </center>
+
+        <script>
+           function manipulateImage(n){
+             let imgObj = document.getElementById("main");
+             if(n == 1){
+                imgObj.width = imgObj.width*1 + 50;
+                imgObj.height = imgObj.height*1 + 50; 
+             }
+             else{
+                imgObj.width = imgObj.width*1 - 50;
+                imgObj.height = imgObj.height*1 - 50;
+             }
+           }
+        </script>
+    </body>
+</html>

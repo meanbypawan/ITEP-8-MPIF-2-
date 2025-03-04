@@ -1,0 +1,43 @@
+<script>
+    /*
+      Pure function :-  It is function which return same output corresponding to same input.
+      Impure function :- It is function which return different output corresponding to same input.
+       1. function which random values as output [Math.random()]
+       2. function which update external states or global variable
+       
+      */
+   function add(a,b){
+    return a + b;
+   }
+
+   console.log(add(20,10));
+   console.log(add(20,10));
+   console.log("--------------------------------------------------");
+   
+   function getValue(){
+    return Math.random();
+   }
+   console.log(getValue());
+   console.log(getValue());
+   console.log("----------------------------------------------------");
+   let x = 100;
+   function increment(a){
+    x++;
+    return a + x;
+   }
+   console.log(increment(10));
+   console.log(increment(10));
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,37 @@
+<script>
+    /*
+       1. Regular Function
+       2. Annonymous function
+       3. Arrow function
+       4. Function expression
+       5. Function Statement
+       6. Constructor Function
+       7. Closure
+       8. Javascript currying
+       9. Pure function
+       10. Impure function
+       11. IIFE [Immediate Invoke Function Expression]
+       12. Callback Function :- It is function which passed as a argument to another function and supposed
+       to execute after executing another function.
+       13. Error callback
+       14. setTimeout(),setInterval()
+       15. First Class Function
+       16. First order function
+       17. generator function
+    */
+
+   (function(a){
+    console.log("IIFE Executed....."+a);
+    return function(b){
+        console.log("Inside Inner : "+(a*b));
+    } 
+   }(5)(4));
+
+</script>
+
+
+
+
+
+
+

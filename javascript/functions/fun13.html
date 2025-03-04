@@ -1,0 +1,28 @@
+<script>
+    /*
+      Data Encapsulation :-
+    */
+   function DataEncapsulation(){
+    this.data = 1000;
+    this.f1 = ()=>{
+        console.log("Inside f1 : "+this.data);
+    }
+    this.f2 = ()=>{
+        console.log("Inside f2 : "+this.data);
+    }
+    this.increment = ()=>{
+        this.data++;
+    }
+    this.decrement = ()=>{
+        this.data--;
+    }
+   }
+
+   let obj = new DataEncapsulation();
+   obj.increment();
+   obj.increment();
+   obj.decrement();
+   obj.f1();
+   obj.f2();
+
+</script>

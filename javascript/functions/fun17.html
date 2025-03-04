@@ -1,0 +1,34 @@
+<script>
+    /*
+      WAP to perform the addition of two number and the check the result it even or odd using callback.
+    */
+   function addition(a,b,callback){
+      let result = a + b;
+      document.write("<br>Result : "+result);
+      callback(result);
+   }
+
+   addition(20,11,function(n){
+    n%2 ? document.write("<br>ODD") : document.write("<br>EVEN");
+   });
+
+   function operation(a,b,checkForEvenOdd,checkForPosNeg){
+      let result = a + b;
+      document.write("<br>Addition : "+result);
+      checkForEvenOdd(result);
+      checkForPosNeg(result);
+   }
+
+   operation(-20,3,function(n){
+    n%2 ? document.write("<br>ODD") : document.write("<br>EVEN");
+   },function(n){
+    n < 0 ? document.write("<br>NEGATIVE") : n > 0 ? document.write("<br>POSITIVE") : document.write("<br>NEITHER POS NOR NEGETIVE");
+   });
+</script>
+
+
+
+
+
+
+
