@@ -1,0 +1,19 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <input id="first" type="text" placeholder="Enter first value"/>
+        <input id = "second" type="text" placeholder="Enter second value"/>
+        <button onclick="addition()">Addition</button>
+        <p id="result">Result : </p>
+        <script>
+            function addition(){
+              let n1 =  document.getElementById("first").value;
+              let n2 = document.getElementById("second").value;
+              let p = document.getElementById("result");
+              p.innerText = "Addition : "+(n1*1+n2*1);
+            }
+        </script>
+    </body>
+</html>

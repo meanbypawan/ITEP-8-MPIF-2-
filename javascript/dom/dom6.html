@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <style>
+            .black-board{
+                height:80vh;
+                background-color: black;
+                color:white;
+                margin-top: 20px;
+                border: 1px solid red;
+                font-size: 20px;
+            }
+            input[type="text"]{
+                width: 100%;
+                height: 40px;
+                border: 2px solid black;
+                border-radius: 10px;
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <input  onkeyup="getData()" id="dataInput" type="text" placeholder="Enter some text"/>
+        <div class="black-board" id="board"></div>
+        <script>
+            function getData(){
+              let inputObj =  document.getElementById("dataInput");
+              let data = inputObj.value;
+            
+              let divObj = document.getElementById("board");
+              divObj.innerHTML = "<b>"+data+"</b>";
+            }
+        </script>    
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
