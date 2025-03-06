@@ -1,0 +1,18 @@
+<html>
+    <body>
+        <input id="fruit-name" type="text" placeholder="Enter fruit name"/>
+        <button onclick="addItem()">ADD</button>
+        <ul id="fruit-list">
+            <li>Mango</li>
+        </ul>
+        <script>
+            function addItem(){
+              let fruitName = document.getElementById("fruit-name").value;
+              let ulList = document.getElementById("fruit-list");
+              let liObj = document.createElement("li");
+              liObj.innerHTML = fruitName;
+              ulList.appendChild(liObj);
+            }
+        </script>
+    </body>
+</html>

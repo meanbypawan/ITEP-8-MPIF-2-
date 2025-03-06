@@ -1,0 +1,88 @@
+<html>
+    <body>
+        <script>
+            function changeTheme(evenRowColor,oddRowColor){
+              let table = document.getElementById("dataTable");
+              let rowArray = table.rows;
+              for(let index=0; index<rowArray.length; index++){
+                if(index%2)
+                  rowArray[index].style.backgroundColor = oddRowColor;
+                else
+                  rowArray[index].style.backgroundColor = evenRowColor;
+              }
+            } 
+        </script>
+        <button onclick="changeTheme('red','blue')">Red-blue</button>
+        <button onclick="changeTheme('green','orange')">Green-orange</button>
+        <button onclick="changeTheme('pink','yellow')">Pink-yellow</button>
+        <table border="1" width="100%" id="dataTable">
+            <tr>
+                <td>Name</td>
+                <td>Class</td>
+                <td>Per</td>
+            </tr>
+            <tr>
+              <td>Cheeku Singh</td>
+              <td>12th</td>
+              <td>90%</td>
+            </tr>
+            <tr>
+                <td>Cheeku Singh</td>
+                <td>12th</td>
+                <td>90%</td>
+              </tr><tr>
+                <td>Cheeku Singh</td>
+                <td>12th</td>
+                <td>90%</td>
+              </tr><tr>
+                <td>Cheeku Singh</td>
+                <td>12th</td>
+                <td>90%</td>
+              </tr><tr>
+                <td>Cheeku Singh</td>
+                <td>12th</td>
+                <td>90%</td>
+              </tr><tr>
+                <td>Cheeku Singh</td>
+                <td>12th</td>
+                <td>90%</td>
+              </tr><tr>
+                <td>Cheeku Singh</td>
+                <td>12th</td>
+                <td>90%</td>
+              </tr><tr>
+                <td>Cheeku Singh</td>
+                <td>12th</td>
+                <td>90%</td>
+              </tr><tr>
+                <td>Cheeku Singh</td>
+                <td>12th</td>
+                <td>90%</td>
+              </tr><tr>
+                <td>Cheeku Singh</td>
+                <td>12th</td>
+                <td>90%</td>
+              </tr><tr>
+                <td>Cheeku Singh</td>
+                <td>12th</td>
+                <td>90%</td>
+              </tr><tr>
+                <td>Cheeku Singh</td>
+                <td>12th</td>
+                <td>90%</td>
+              </tr><tr>
+                <td>Cheeku Singh</td>
+                <td>12th</td>
+                <td>90%</td>
+              </tr><tr>
+                <td>Cheeku Singh</td>
+                <td>12th</td>
+                <td>90%</td>
+              </tr><tr>
+                <td>Cheeku Singh</td>
+                <td>12th</td>
+                <td>90%</td>
+              </tr>
+        </table>
+    </body>
+</html>
