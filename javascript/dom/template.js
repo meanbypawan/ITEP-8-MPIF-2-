@@ -1,13 +1,13 @@
 function HeaderComponent(){
     let main = document.querySelector("#main");
-
     let headerDiv = document.createElement("div");
     headerDiv.setAttribute("style","height:70px; border: 1px solid black");
     headerDiv.setAttribute("class","bg-dark d-flex flex-row justify-content-between align-items-center");
-
+    
     let leftDiv = document.createElement("div");
     leftDiv.setAttribute("style","width:20%;height:50px;");
     leftDiv.setAttribute("class","d-flex flex-column justify-content-center align-items-center");
+    
     let label = document.createElement("span");
     label.innerText = "MPIF"
     label.setAttribute("class","text-danger");
