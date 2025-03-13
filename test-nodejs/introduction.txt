@@ -1,0 +1,50 @@
+ Library/Module/Dependency:-
+ |
+ |--->Application Level Dependency
+      |---> Default Available
+            |---events
+            |---fs
+            |---http
+            |---url
+            |---path
+      |---> Installable
+            |--mysql
+            |--jsonwebtoken
+            |--cors
+            |--express 
+
+ |--->Global Level / Enviornemnt Level Dependency  
+      |--nodemon
+      |--@angular/cli
+---------------------------------------------------------------
+How to create node application ?
+1. Create a folder
+2. Navigate into folder and execute npm init command
+
+How to install dependency at application level/ Global ? 
+  1. npm install mysql
+
+How to install package.jon
+  npm install
+
+  2. npm install -g nodemon
+-------------------------------------------------
+Importing / Exporting Module
+  Export :-
+    1. Named export
+    2. Default export
+  Import :-
+    1. Named import
+    2. Default import  
+
+  
+
+
+
+
+
+
+
+
+
+
