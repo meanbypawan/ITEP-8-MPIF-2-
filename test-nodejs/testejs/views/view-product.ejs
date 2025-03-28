@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>View product</title>
+        <%-include("__bootstrap.ejs")%>
+    </head>
+    <body>
+        <%-include("__header.ejs")%>
+        <div class="container mt-5">
+            <table class="table">
+               <thead>
+                <tr>
+                    <th>Product id</th>
+                    <th>Title</th>
+                    <th>Price</th>
+                    <th>Description</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+               </thead>
+               <tbody>
+                <%for(let product of productList){%>
+                  <tr>
+                    <td><%=product.id%></td>
+                    <td><%=product.title%></td>
+                    <td><%=product.price%></td>
+                    <td><%=product.description%></td>
+                    <td><button class="btn btn-outline-primary">Edit</button></td>
+                    <td><button class="btn btn-outline-danger">Delete</button></td>  
+                  </tr>
+                <%}%>    
+               </tbody>
+            </table>
+        </div>
+    </body>
+</html>
