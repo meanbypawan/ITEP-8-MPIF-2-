@@ -1,0 +1,186 @@
+MySQL :-
+
+  Database---->Table----->Record/Row/Tuple
+  
+MongoDB :-
+  Database---->Collection-->Record/Documents
+ ----------------------------
+ Listing Database
+   show dbs
+ Creating database
+    use infodb
+ 
+ Createing collection
+ db.createCollection("employee")      
+ 
+ listing collection
+ show collections
+ 
+ 2-Types of collection
+  a. Capped   
+  b. Uncapped 
+ 
+  db.employees.isCapped()
+  
+  db.employees.drop()
+  
+  db.employees.insertOne({
+    name:"Cheeku",
+    salary: 50000,
+    skill: "Java"
+  });
+  
+  db.employees.insertMany([
+    {
+     name:"Peeku",
+     salary: 70000,
+     skill: "Java"
+    },
+    {
+    name:"Leesha",
+    salary: 67000,
+    skill: "Angular"
+  },
+  {
+    name:"Neesha",
+    salary: 90000,
+    skill: "ReactJs"
+  },
+  {
+    name:"Atul",
+    salary: 100000,
+    skill: "Java"
+  },
+  {
+    name:"Ankita",
+    salary: 150000,
+    skill: "Javascript"
+  },
+  {
+    name:"Rinku",
+    salary: 89000,
+    skill: "Angular"
+  }
+  ]);
+  
+  db.employees.insertOne({
+    name: "Sachin",
+    salary: 78000,
+    skill: "CSS",
+    bg: "B+"
+  })
+  
+  db.createCollection("test",{capped: true,max:5,size:1000})
+  ------------------------------------------------------------------------
+  $gt,$lt,$gte,$lte,$eq,$ne
+  $and, $or
+  
+  db.employees.find({skill:"Java"});
+  db.employee.find({salary:70000})
+  
+  // select * from employee where salary >70000
+  db.employees.find({salary:{$gte:70000}})
+  
+  db.employees.find({
+    $and:[{salary:{$gte:70000}},{salary:{$lte:90000}}]
+  })
+    
+  db.employees.find({
+    $and:[{skill:"Java"},{salary:{$gte:70000}}]
+  })
+  db.employees.updateOne(
+   {_id:ObjectId('67f4a60b54966896b86b1410')},
+   {$set:{salary:115000}}
+  )
+  
+  // select name,salary from employees
+  db.employees.find({},{name:1,salary:1})
+  db.employees.find({},{_id:0,name:1,salary:1})
+  
+  // order by
+  db.employees.find({},{_id:0}).sort({salary: 1})
+  db.employees.find().sort({salary:1}).limit(3)
+  db.employees.find().sort({salary:1}).skip(3).limit(2)
+  
+  db.employees.find().sort({salary:-1})
+  
+  // Finding highest value
+  db.employees.find().sort({salary:-1}).toArray()[0].salary
+  
+  db.employees.find({
+    salary: db.employees.find().sort({salary:-1}).toArray()[0].salary
+  })
+  db.employees.find({
+    salary:{$lt:db.employees.find().sort({salary:-1}).toArray()[0].salary}
+  },{_id:0}).sort({salary:-1}).toArray()[0].salary
+  
+  
+  db.employees.find({
+      salary:   db.employees.find({
+          salary:{$lt:db.employees.find().sort({salary:-1}).toArray()[0].salary}
+   },{_id:0}).sort({salary:-1}).toArray()[0].salary
+  })
+  ----------------------------------------------
+  db.course.insertMany([{
+    courseName: "B.Tech"
+  },{
+    courseName: "MCA"
+  },
+  {
+    courseName: "BCA"
+  },{
+    courseName: "BBA"
+  },{
+    courseName: "B.COM"
+  },{
+    courseName: "BA"
+  }])
+  
+ db.student.insertMany([
+   {studentName: "A",degree: "BA"},
+   {studentName: "B",degree: "MCA"},
+   {studentName: "C",degree: "B.COM"},
+   {studentName: "D",degree: "BA"},
+   {studentName: "E",degree: "B.Tech"},
+   {studentName: "F",degree: "BCA"},
+   {studentName: "G",degree: "BBA"},
+   {studentName: "H",degree: "BCA"}
+ ]) 
+ -----------------------------------------------
+ aggregate pipeline
+  
+ db.course.aggregate()
+ db.employees.aggregate([
+  {
+    $match:{skill: "Java"}
+  },
+  {
+    $project:{name:1,salary:1,skill:1,_id:0}
+  }
+ ])
+ --------------------------------------------------------------------
+ db.course.aggregate([
+   {
+     $lookup:{
+       from: "student",
+       foreignField:"degree",
+       localField: "courseName",
+       as: "studentList"
+     }
+   },
+   {
+     $match:{courseName:"BA"}
+   },
+   {
+     $project:{_id:1,courseName:1,studentList:{studentName:1}}
+   }
+ ]) 
+  
+  
+  
+  
+  
+  
+   
+  
+  

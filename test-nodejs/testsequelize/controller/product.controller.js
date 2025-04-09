@@ -7,7 +7,7 @@ export const updateProduct = (request,response,next)=>{
         return result[0] ? response.status(200).json({message: "Product updated"}) : response.status(404).json({error:"Requested resouce not available | Id not found"});
     }).catch(err=>{
         return response.status(500).json({error: "Internal Server Error"});
-    })
+    });
 }
 export const deleteProduct = (request,response,next)=>{
     let id = request.params.id;
