@@ -1,5 +1,5 @@
 import express from "express";
-import { signUpAction, signInAction } from "../controller/user.controller.js";
+import { signUpAction, signInAction, verifyAccount } from "../controller/user.controller.js";
 import { body } from "express-validator";
 const router = express.Router();
 
@@ -10,4 +10,5 @@ router.post("/sign-up",
     body("email","invalid email id").isEmail(),
     body("contact","only digits are allowed").isNumeric(),signUpAction);
 router.post("/sign-in",signInAction);
+router.post("/verify",verifyAccount);
 export default router;

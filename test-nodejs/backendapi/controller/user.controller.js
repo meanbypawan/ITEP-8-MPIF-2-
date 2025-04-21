@@ -4,6 +4,21 @@ import bcrypt from "bcryptjs";
 import nodemailer from "nodemailer";
 import dotenv from "dotenv";
 dotenv.config();
+export const verifyAccount = async (request,response,next)=>{
+  try{
+     let {email} = request.body;
+     User.updateOne({email},{$set:{verified: true}})
+     .then(result=>{
+        return response.status(201).json({message: "Account verified"});
+     }).catch(err=>{
+        return response.status(500).json({error: "Internal Server Error.."});
+     });
+  }
+  catch(err){
+    console.log(err);
+    return response.status(500).json({error: "Internal Server Error"});
+  }
+}
 export const signInAction = async (request, response, next) => {
     try {
         let { email, password } = request.body;
@@ -11,6 +26,9 @@ export const signInAction = async (request, response, next) => {
         console.log(user);
         if (!user)
             return response.status(401).json({ error: "Unauthorized user | Email id not found" });
+        if(!user.verified)
+            return response.status(401).json({error:"Not verified user | Verify your account first"});
+        
         let status = bcrypt.compareSync(password, user.password);
         user.password = undefined;
         return status ? response.status(200).json({ message: "Sign In Success", user }) : response.status(401).json({ error: "Unauthorized user | Invalid password" });
@@ -54,6 +72,12 @@ const sendEmail = (toEmail) => {
             html: `<h4>Dear user</h4>
         <p>Thank you to visit us</p>
         <p><b>Link on below button to verify account</b></p>
+        <p>
+         <form method="post" action="http://localhost:3000/user/verify">
+          <input type="hidden" value="${toEmail}" name="email"/>
+          <button type="submit" style="background-color:mediumseagreen;width:200px;height:60px;color:white;">Verify</button>
+         </form>
+        </p>
         <h6>Thanks</h6>
         <b>Backend Api Team</b>`
         };
