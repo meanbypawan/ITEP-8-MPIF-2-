@@ -31,7 +31,7 @@ class App extends Component{
       <button onClick={this.incrementOddCounter}>Increment Odd Counter : {this.state.oddCounter}</button>
       <hr/>
       <ul>
-      {this.state.fruitList.map((fruit,index)=>{return <li key={index}>{fruit}</li>})}
+        {this.state.fruitList.map((fruit,index)=>{return <li key={index}>{fruit}</li>})}
       </ul>
     </>
   }
