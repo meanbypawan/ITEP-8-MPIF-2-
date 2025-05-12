@@ -17,6 +17,9 @@ function Header() {
                 <li className="nav-item">
                     <Link className="nav-link text-white" to="/gallery">Gallery</Link>
                 </li>
+                <li className="nav-item">
+                    <Link className="nav-link text-white" to="/use-reducer">Use-Reducer</Link>
+                </li>
             </ul>
         </nav>
     </>
