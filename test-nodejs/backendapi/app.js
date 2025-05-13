@@ -5,9 +5,11 @@ import UserRouter from "./routes/user.route.js";
 import ProductRouter from "./routes/product.route.js";
 import CartRouter from "./routes/cart.route.js";
 import dotenv from "dotenv";
+import cors from "cors"
 dotenv.config();
 
 const app = express();
+app.use(cors());
 mongoose.connect("mongodb://localhost:27017/backenddb")
     .then(() => {
         app.use(bodyParser.json());
