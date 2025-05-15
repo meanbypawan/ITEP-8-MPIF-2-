@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Header from "../Header";
 import "./ViewMore.css";
 import { useEffect, useRef, useState } from "react";
@@ -6,6 +6,7 @@ import axios from "axios";
 function ViewMore(){
     const {id} = useParams();
     const [product,setProduct] = useState({});
+    const navigate = useNavigate();
     let mainImageRef = useRef(); 
     useEffect(()=>{
         loadProductById();
@@ -26,6 +27,9 @@ function ViewMore(){
         mainImageRef.current.src = event.target.src;
         event.target.src = temp;
     }
+    const handleBuyNow = (productId)=>{
+       navigate("/buy-now");
+    }
     return <>
       <Header/>
       <div className="container mt-3">
@@ -36,7 +40,21 @@ function ViewMore(){
                   {product?.images?.map((imageUrl,index)=>{return <img onClick={swapImage} src={imageUrl} style={{width:"100px", height:"80px"}} key={index}/>})}
                </div>
             </div>
-            <div className="col-md-6 container-shadow container-height"></div>
+            <div className="col-md-6 container-shadow container-height p-3">
+                <div className="flex-container-column">
+                   <h4>{product.title} [<b className="text-primary">{product.brand}</b>]</h4>
+                   <hr className="bg-danger" style={{height:"5px",width:"100%"}}/>
+                   <p>{product.description}</p>
+                   <p><b>Warranty Information : </b>{product.warrantyInformation}</p>
+                   <p><b>Shipping Information : </b>{product.shippingInformation}</p>
+                   <p><b>Return policy : </b>{product.returnPolicy}</p>
+                   <p><b>Availability Status : </b>{product.availabilityStatus}</p>
+                   <p><b>Rating : </b>({product.rating}/5)</p>
+                   <p><b>Discount : </b><span className="text-warning" style={{fontSize:"25px",fontWeight:"bolder"}}>{product.discountPercentage} %</span></p>
+                   <p><b>Actual Price : </b><span className="text-success"><del className="text-danger">{product.price}</del> <span style={{fontSize:"25px",fontWeight:"bolder"}}>{(product.price-((product.price*product.discountPercentage)/100)).toFixed(2)} Rs.</span></span></p>
+                   <button onClick={()=>handleBuyNow(product.id)} className="btn btn-warning">Buy now</button>
+                </div>
+            </div>
         </div>
       </div>
     </>

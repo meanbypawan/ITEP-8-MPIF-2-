@@ -10,3 +10,10 @@
     justify-content: space-around;
     align-items: center;
 }
+.flex-container-column{
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    justify-content: space-around;
+}
