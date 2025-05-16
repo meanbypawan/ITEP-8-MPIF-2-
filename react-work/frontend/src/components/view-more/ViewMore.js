@@ -3,6 +3,7 @@ import Header from "../Header";
 import "./ViewMore.css";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
+import Apis from "../../Apis";
 function ViewMore(){
     const {id} = useParams();
     const [product,setProduct] = useState({});
@@ -14,7 +15,7 @@ function ViewMore(){
 
     const loadProductById = async()=>{
         try{
-           let response = await axios.get(`http://localhost:3000/product/${id}`);
+           let response = await axios.get(Apis.GET_PRODUCT_BY_ID+`/${id}`);
            console.log(response.data.product);
            setProduct(response.data.product);
         }

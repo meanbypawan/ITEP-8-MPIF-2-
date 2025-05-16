@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import "./user.css";
 import { useState } from "react";
 import axios from "axios";
+import Apis from "../../Apis";
 function SignUp(){
     const navigate = useNavigate();
     const [username,setUsername] = useState("");
@@ -13,7 +14,7 @@ function SignUp(){
       try{
         setIsLoading(true);
         event.preventDefault();
-        let response = await axios.post("http://localhost:3000/user/sign-up",{username,password,email,contact});
+        let response = await axios.post(Apis.SIGN_UP,{username,password,email,contact});
         console.log(response.data);
       }
       catch(err){
