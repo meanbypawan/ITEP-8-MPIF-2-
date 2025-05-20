@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import UserRouter from "./routes/user.route.js";
 import ProductRouter from "./routes/product.route.js";
 import CartRouter from "./routes/cart.route.js";
+import OrderRouter from "./routes/order.route.js";
 import dotenv from "dotenv";
 import cors from "cors"
 dotenv.config();
@@ -17,6 +18,7 @@ mongoose.connect("mongodb://localhost:27017/backenddb")
         app.use("/user", UserRouter);
         app.use("/product",ProductRouter);
         app.use("/cart",CartRouter);
+        app.use("/order",OrderRouter);
         app.listen(process.env.PORT, () => {
             console.log("Server Started...At " + process.env.PORT);
         });

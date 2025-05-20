@@ -28,8 +28,12 @@ function ViewMore(){
         mainImageRef.current.src = event.target.src;
         event.target.src = temp;
     }
-    const handleBuyNow = (productId)=>{
-       navigate("/buy-now");
+    const handleBuyNow = (product)=>{
+       let id = product._id;
+       let title = product.title;
+       let price = product.price;
+       let discountPercentage = product.discountPercentage;
+       navigate("/buy-now",{state:{params:{id,title,price,discountPercentage}}});
     }
     return <>
       <Header/>
@@ -53,7 +57,7 @@ function ViewMore(){
                    <p><b>Rating : </b>({product.rating}/5)</p>
                    <p><b>Discount : </b><span className="text-warning" style={{fontSize:"25px",fontWeight:"bolder"}}>{product.discountPercentage} %</span></p>
                    <p><b>Actual Price : </b><span className="text-success"><del className="text-danger">{product.price}</del> <span style={{fontSize:"25px",fontWeight:"bolder"}}>{(product.price-((product.price*product.discountPercentage)/100)).toFixed(2)} Rs.</span></span></p>
-                   <button onClick={()=>handleBuyNow(product.id)} className="btn btn-warning">Buy now</button>
+                   <button onClick={()=>handleBuyNow(product)} className="btn btn-warning">Buy now</button>
                 </div>
             </div>
         </div>
