@@ -1,12 +1,13 @@
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { isLoggedIn } from "./Auth";
+import { logOut } from "../redux-config/UserSlice";
 
 function Header() {
+    const {user,isLoggedIn} = useSelector((store)=>store.current_user);
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const handleSignOut = ()=>{
-        sessionStorage.setItem("isLoggedIn","false");
-        sessionStorage.setItem("user",null);
-        sessionStorage.clear();
+        dispatch(logOut());
         navigate("/");
     }
     return <>
@@ -21,9 +22,10 @@ function Header() {
                     <li><a href="#">Products</a></li>
                     <li><a href="#">About us</a></li>
                     <li><a href="#">Contact us</a></li>
-                    {!isLoggedIn() && <li><Link to="/sign-in">Signin</Link></li>}
-                    {!isLoggedIn() && <li><Link to="/sign-up">Signup</Link></li>}
-                    {isLoggedIn() && <li><Link to="" onClick={handleSignOut}>Sign out</Link></li>}
+                    {!isLoggedIn && <li><Link to="/sign-in">Signin</Link></li>}
+                    {!isLoggedIn && <li><Link to="/sign-up">Signup</Link></li>}
+                    {isLoggedIn && <li><Link to="/order-history">Order history</Link></li>}
+                    {isLoggedIn && <li><Link to="" onClick={handleSignOut}>Sign out</Link></li>}
                     
                 </ul>
             </div>

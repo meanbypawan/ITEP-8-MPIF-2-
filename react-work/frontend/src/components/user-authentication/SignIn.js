@@ -3,19 +3,21 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Apis from "../../Apis";
 import { toast, ToastContainer } from "react-toastify";
+import { useDispatch } from "react-redux";
+import { setUser } from "../../redux-config/UserSlice";
+import { fetchOrder } from "../../redux-config/OrderSlice";
 
 function SignIn(){
     const navigate = useNavigate();
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
-    
+    const dispatch = useDispatch();
     const handleSubmit = async (event)=>{
       event.preventDefault();
       try{
          let response = await axios.post(Apis.SIGN_IN,{email,password});
-         console.log(response.data);
-         sessionStorage.setItem("current-user",JSON.stringify(response.data.user));
-         sessionStorage.setItem("isLoggedIn","true");
+         dispatch(setUser(response.data));
+         dispatch(fetchOrder(response.data.user._id));
          navigate("/");
       }
       catch(err){

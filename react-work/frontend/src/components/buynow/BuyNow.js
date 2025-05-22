@@ -1,18 +1,20 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import Header from "../Header";
 import { useRef } from "react";
-import { getCurrentUser } from "../Auth.js";
 import axios from "axios";
 import Apis from "../../Apis.js";
 import { toast, ToastContainer } from "react-toastify";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchOrder } from "../../redux-config/OrderSlice.js";
 function BuyNow(){
     const naviage = useNavigate();
     const location = useLocation();
-    let {id,title,price,discountPercentage} = location.state.params;    
+    let {id,title,price,discountPercentage} = location?.state?.params;    
+    const {user,isLoggedIn} = useSelector((store)=>store.current_user);
     let nameInput = useRef();
     let contactInput = useRef();
     let addressInput = useRef();
-    let currentUser = getCurrentUser();
+    const dispatch = useDispatch();
     const handleBack = ()=>{
       naviage(-1);
     }
@@ -22,12 +24,13 @@ function BuyNow(){
       let name = nameInput.current.value;
       let contact = contactInput.current.value;
       let address = addressInput.current.value;
-      let userId = currentUser._id;
+      let userId = user._id;
       let productId = id;
       let billAmount = (price-(discountPercentage*price)/100).toFixed(2);
       let response = await axios.post(Apis.PLACE_ORDER,{name,contact,address,userId,productId,billAmount});
       toast.success(response.data.message);
-     }
+      dispatch(fetchOrder(user._id));
+    }
      catch(err){
        toast.error("Oops! something went wrong..");
        console.log(err);
@@ -50,10 +53,10 @@ function BuyNow(){
         </div>
         <form onSubmit={handleSubmit} className="" style={{marginTop:"10px"}}>
           <div className="form-group">
-            <input defaultValue={currentUser.username} ref={nameInput} type="text" placeholder="Contact person name" className="form-control"/>
+            <input defaultValue={user.username} ref={nameInput} type="text" placeholder="Contact person name" className="form-control"/>
           </div>
           <div className="form-group">
-            <input defaultValue={currentUser.contact} ref={contactInput} type="text" placeholder="Contact number" className="form-control"/>
+            <input defaultValue={user.contact} ref={contactInput} type="text" placeholder="Contact number" className="form-control"/>
           </div>
           <div className="form-group">
             <textarea ref={addressInput} className="form-control" placeholder="Enter delivery address"></textarea>
