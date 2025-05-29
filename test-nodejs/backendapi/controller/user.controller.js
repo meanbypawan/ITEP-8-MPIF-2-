@@ -2,6 +2,7 @@ import { validationResult } from "express-validator";
 import { User } from "../model/user.model.js"
 import bcrypt from "bcryptjs";
 import nodemailer from "nodemailer";
+import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 dotenv.config();
 export const verifyAccount = async (request,response,next)=>{
@@ -31,7 +32,13 @@ export const signInAction = async (request, response, next) => {
         
         let status = bcrypt.compareSync(password, user.password);
         user.password = undefined;
-        return status ? response.status(200).json({ message: "Sign In Success", user }) : response.status(401).json({ error: "Unauthorized user | Invalid password" });
+        if(status){
+          let payload = {currentUser: user._id};
+          let token = jwt.sign(payload,"dflfdkjreiwreriovnxvmnvxcm@#12fdfre#"); 
+          response.cookie("token",token);
+          return  response.status(200).json({ message: "Sign In Success", user})
+        }
+        return response.status(401).json({ error: "Unauthorized user | Invalid password" });
     }
     catch (err) {
         return response.status(500).json({ error: "Internal Server Error" });

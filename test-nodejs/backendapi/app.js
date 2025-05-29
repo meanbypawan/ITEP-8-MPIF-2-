@@ -7,10 +7,12 @@ import CartRouter from "./routes/cart.route.js";
 import OrderRouter from "./routes/order.route.js";
 import dotenv from "dotenv";
 import cors from "cors"
+import cookieParser from "cookie-parser";
 dotenv.config();
 
 const app = express();
 app.use(cors());
+app.use(cookieParser());
 mongoose.connect("mongodb://localhost:27017/backenddb")
     .then(() => {
         app.use(bodyParser.json());
