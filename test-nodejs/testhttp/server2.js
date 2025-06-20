@@ -1,6 +1,9 @@
 import http from "http";
 import fs from "fs";
 import url from "url";
+// http://localcalhost:3000/add?a=20&b=10
+// request.url ===>  "/add?a=20&b=10"
+// {pathname="/add",query:{a:"20",b:"10"}}
 const server = http.createServer((request,response)=>{
  const parsedUrl = url.parse(request.url,true);
  console.log(parsedUrl); 

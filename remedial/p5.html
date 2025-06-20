@@ -1,0 +1,19 @@
+<html>
+
+<body>
+    <button id="btnHello">Say Hello..</button>
+    <button id="btnBye">Say Bye..</button>
+
+    <script>
+       document.getElementById("btnHello").addEventListener("click",function(){
+        console.log(this);
+        console.log("Hello....");
+       });
+       document.getElementById("btnBye").addEventListener("click",()=>{
+        console.log(this);
+        console.log("Bye...");
+       });
+    </script>
+</body>
+
+</html>

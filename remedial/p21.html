@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <style>
+            #container{
+                height: 100px;
+                border: 1px solid black;
+                padding: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <ul id="list-container">
+                <li id="list-item">
+                    Click Me 
+                    <button id="btn">Click Me</button>
+                </li>
+            </ul>
+        </div>
+        <script>
+            document.getElementById("container").addEventListener("click",function(){
+               console.log("Div is clicked | Event Bubble btn-->li-->ul--->div");
+            },true); // true=capturing
+            document.getElementById("list-container").addEventListener("click",function(){
+               console.log("UL is clicked | Event Bubble btn-->li--->ul");    
+            },true);
+            document.getElementById("list-item").addEventListener("click",function(){
+                console.log("Li clicked | Event Bubble btn--->li");
+            },true);
+            document.getElementById("btn").addEventListener("click",function(){
+                console.log("Button is clicked.....");
+            },true);
+       
+        </script>
+    </body>
+
+</html>

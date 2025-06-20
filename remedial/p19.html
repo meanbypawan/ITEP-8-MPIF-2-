@@ -1,0 +1,19 @@
+<script>
+function DataEncapsulation(){
+    this.data = 500
+    this.increment = function(){
+        console.log("Increment : "+this.data);
+    }
+    this.decrement = function(){
+        console.log("Decrement : "+this.data);
+    }
+}
+
+let obj = DataEncapsulation(); // obj : {data: 500}
+obj.increment();
+obj.increment();
+obj.increment();
+obj.decrement();
+obj.decrement();
+obj.decrement();
+</script>
